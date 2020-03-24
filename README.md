@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
+Documentation was filled accordingly.
+
 Installation is done by cloning https://github.com/andrzejenne/bsc-notes-test and installing dependencies
 ```bash
 git clone https://github.com/andrzejenne/bsc-notes-test
