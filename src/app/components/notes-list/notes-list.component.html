@@ -1,7 +1,6 @@
-<p *ngIf="loading" i18n>Loading ...</p>
-<mat-list #elseBlock primary>
-    <div mat-subheader i18n>Notes</div>
-    <mat-list-item *ngFor="let item of list" (click)="selectNote(item.id)" [class]="item.id === selected ? 'selected': ''">
+<mat-list primary>
+    <!-- <div mat-subheader i18n>Notes</div> -->
+    <mat-list-item *ngFor="let item of list" (tap)="onTap(item.id)" (press)="selectNote(item.id)" [class]="item.id === selected ? 'selected': ''">
         <mat-icon mat-list-icon>note</mat-icon>
         <div mat-line>{{item.title}}</div>
     </mat-list-item>
@@ -11,7 +10,7 @@
     <mat-icon>add</mat-icon>
 </button>
 <ng-template #selectedBlock>
-    <button mat-fab class="fixed bottom right" color="accent" [routerLink]="selected">
+    <button mat-fab class="fixed bottom right" color="accent" [routerLink]="selected + '/edit'">
         <mat-icon>edit</mat-icon>
     </button>
 </ng-template>

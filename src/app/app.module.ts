@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -6,11 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-
-// i18n
-import { registerLocaleData } from '@angular/common';
-import localeCs from '@angular/common/locales/cs';
-import localeEn from '@angular/common/locales/en';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 // material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -26,20 +22,27 @@ import { NotesListComponent } from './components/notes-list/notes-list.component
 import { NoteComponent } from './components/note/note.component';
 
 // services
-import { NotesService } from './notes.service';
-import { ConfigService } from './config.service';
+import { NotesService } from './services/notes.service';
+import { ConfigService } from './services/config.service';
 
-registerLocaleData(localeCs);
-registerLocaleData(localeEn);
+// AoT requires an exported function for factories
+import {HttpClient} from '@angular/common/http';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { DetailComponent } from './components/detail/detail.component';
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     NotesListComponent,
-    NoteComponent
+    NoteComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
+    HammerModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -50,7 +53,16 @@ registerLocaleData(localeEn);
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [
     NotesService,

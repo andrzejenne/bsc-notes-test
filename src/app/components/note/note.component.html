@@ -1,16 +1,16 @@
 <mat-card>
-    <mat-card-title i18n>{{modeTitle}}</mat-card-title>
+    <mat-card-title>{{modeTitle | translate}}</mat-card-title>
     <mat-card-content>
         <p *ngIf="error">{{error}}</p>
         <form>
             <mat-form-field>
-                <mat-label i18n>Title</mat-label>
+                <mat-label>{{'Title' | translate}}</mat-label>
                 <input matInput type="text" name="title" [(ngModel)]="note.title">
             </mat-form-field>
         </form>
     </mat-card-content>
     <mat-card-actions>
-        <button (click)="cancel()" mat-button color="default" i18n>Cancel</button>
-        <button (click)="save()" class="right" mat-raised-button i18n [color]="saveColor">{{saveTitle}}</button>
+        <button (click)="cancel()" mat-button color="default">{{'Cancel' | translate}}</button>
+        <button (click)="save()" class="right" mat-raised-button [color]="saveColor">{{saveTitle | translate}}</button>
     </mat-card-actions>
 </mat-card>

@@ -1,29 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NotesService } from 'src/app/notes.service';
-import NoteEntity from 'src/app/entities/note';
+import { DetailComponent } from 'src/app/components/detail/detail.component';
 
 @Component({
   selector: 'app-note',
   templateUrl: './note.component.html',
   styleUrls: ['./note.component.sass']
 })
-export class NoteComponent implements OnInit {
-
-  public note: NoteEntity = {
-    id: null,
-    title: ''
-  };
+export class NoteComponent extends DetailComponent implements OnInit {
 
   public modeTitle = 'Create Note';
 
   public saveTitle = 'Create';
 
   public saveColor = 'primary';
-
-  public error = '';
-
-  constructor(private router: Router, private route: ActivatedRoute, private service: NotesService) { }
 
   ngOnInit(): void {
     if (this.route.snapshot.params.id > 0) {
@@ -36,7 +25,7 @@ export class NoteComponent implements OnInit {
   }
 
   public cancel() {
-    this.router.navigateByUrl('/list');
+    this.goBack();
   }
 
   public async save() {
@@ -48,13 +37,4 @@ export class NoteComponent implements OnInit {
 
     this.cancel();
   }
-
-  private async loadNote(id: number) {
-    try {
-      this.note = await this.service.getNote(id);
-    } catch (e) {
-      this.error = e.message || 'Loading error !!!';
-    }
-  }
-
 }

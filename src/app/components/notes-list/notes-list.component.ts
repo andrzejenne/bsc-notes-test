@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NotesService } from 'src/app/notes.service';
+import { NotesService } from 'src/app/services/notes.service';
 import NoteEntity from 'src/app/entities/note';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notes-list',
@@ -11,11 +12,9 @@ export class NotesListComponent implements OnInit {
 
   public list: NoteEntity[] = [];
 
-  public loading = true;
-
   public selected: number | null = null;
 
-  constructor(private notes: NotesService) { }
+  constructor(private notes: NotesService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadNotes();
@@ -32,12 +31,17 @@ export class NotesListComponent implements OnInit {
   public async removeNote(id: number) {
     this.selected = null;
     await this.notes.removeNote(id);
+    this.list.splice(
+      this.list.findIndex((item) => item.id === id), 1
+    );
+  }
+
+  public onTap(id: number) {
+    this.router.navigateByUrl('/list/' + id);
   }
 
   private async loadNotes() {
-    this.loading = true;
     this.list = await this.notes.getList();
-    this.loading = false;
   }
 
 }

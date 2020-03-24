@@ -1,0 +1,12 @@
+<mat-card>
+    <mat-card-title>{{'Note Detail' | translate}}</mat-card-title>
+    <mat-card-content>
+        <p *ngIf="error">{{error}}</p>
+        <p>{{note.title}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button (click)="goBack()" mat-button color="default">{{'Back' | translate}}</button>
+        <button routerLink="edit" class="right" mat-raised-button color="accent">{{'Edit' | translate}}</button>
+        <button (click)="remove()" class="right" mat-raised-button color="warn">{{'Remove' | translate}}</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,5 +1,13 @@
 <mat-toolbar>
-  <span i18n>Notes</span>
+  <span>{{'Notes' | translate}}</span>
+  <span class="fillup"></span>
+  <span>
+    <button mat-mini-fab (click)="setLang('en')"
+      [color]="lang === 'en' ? 'primary' : 'default'">EN</button>
+    &nbsp;
+    <button mat-mini-fab (click)="setLang('cs')"
+      [color]="lang === 'cs' ? 'primary' : 'default'">CZ</button>
+  </span>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
