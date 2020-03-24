@@ -28,6 +28,10 @@ export class NoteComponent extends DetailComponent implements OnInit {
     this.goBack();
   }
 
+  public goToList() {
+    this.router.navigateByUrl('/list');
+  }
+
   public async save() {
     if (this.note.id) {
       await this.service.updateNote(this.note.id, this.note.title);
@@ -35,6 +39,6 @@ export class NoteComponent extends DetailComponent implements OnInit {
       await this.service.createNote(this.note.title);
     }
 
-    this.cancel();
+    this.goToList();
   }
 }

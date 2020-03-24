@@ -42,6 +42,7 @@ Localization can be switched between English and Czech in top right corner. App 
 ## Known issues
 
 There is no confirmation dialog for remove note actions.
+There are no validations for url parameters.
 
 ## Code scaffolding
 
