@@ -35,7 +35,7 @@ On detail page are 3 action buttons back, remove and edit.
 On edit page is text field for title and action buttons cancel and update.
 
 New note can be created by taping green + fab on list page.
-This fab is hidden if any note is selected.
+This fab is hidden if a note is selected.
 
 Localization can be switched between English and Czech in top right corner. App uses native localStorage to remember last locale setting. For more localization possibilities, menu component should be used instead.
 
