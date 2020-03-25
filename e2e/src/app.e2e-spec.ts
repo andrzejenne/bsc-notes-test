@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display notes list', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('NotesApp app is running!');
+    expect(page.getNotesList().count()).toBe(2);
   });
 
   afterEach(async () => {

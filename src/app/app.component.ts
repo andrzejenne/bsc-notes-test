@@ -7,8 +7,6 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  public title = 'NotesApp';
-
   public lang: string | null = null;
 
   constructor(private translate: TranslateService) {

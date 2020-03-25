@@ -37,12 +37,13 @@ On edit page is text field for title and action buttons cancel and update.
 New note can be created by taping green + fab on list page.
 This fab is hidden if any note is selected.
 
-Localization can be switched between English and Czech in top right corner. App uses native localStorage to remember last locale setting. For more localization possibilites, menu component should be used instead.
+Localization can be switched between English and Czech in top right corner. App uses native localStorage to remember last locale setting. For more localization possibilities, menu component should be used instead.
 
 ## Known issues
 
-There is no confirmation dialog for remove note actions.
-There are no validations for url parameters.
+* There is no confirmation dialog for remove note actions.
+* There are no validations for url parameters.
+* Tests are mostly generated stubs, which were fixed accordingly. Generally tests require vast amount of coding to fullfill 100% code coverage.
 
 ## Code scaffolding
 

@@ -19,16 +19,17 @@ import { MatCardModule } from '@angular/material/card';
 
 // components
 import { NotesListComponent } from './components/notes-list/notes-list.component';
-import { NoteComponent } from './components/note/note.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { CreateNoteComponent } from './components/create-note/create-note.component';
+import { EditNoteComponent } from './components/edit-note/edit-note.component';
 
 // services
 import { NotesService } from './services/notes.service';
 import { ConfigService } from './services/config.service';
 
 // AoT requires an exported function for factories
-import {HttpClient} from '@angular/common/http';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { DetailComponent } from './components/detail/detail.component';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -37,8 +38,9 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     NotesListComponent,
-    NoteComponent,
-    DetailComponent
+    DetailComponent,
+    CreateNoteComponent,
+    EditNoteComponent
   ],
   imports: [
     BrowserModule,
