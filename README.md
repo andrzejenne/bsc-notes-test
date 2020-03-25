@@ -44,6 +44,36 @@ Localization can be switched between English and Czech in top right corner. App 
 * There is no confirmation dialog for remove note actions.
 * There are no validations for url parameters.
 * Tests are mostly generated stubs, which were fixed accordingly. Generally tests require vast amount of coding to fullfill 100% code coverage.
+* No animations - Is this really issue ?
+
+## Used programming techniques and packages
+
+### packages
+
+* @angular/cli for app scaffolding
+* @angular/material for UI
+* hammerjs for gestures
+* @ngx-translate for dynamic translations
+
+### techniques
+
+* native angular DI in services
+* native angular routing
+* repository pattern in notes.service
+* component inheritance (too bad template is not automatically inherited, it must be reincluded)
+* entity definition by class instead of interface
+
+## Programming skills
+* return to angular in just 1 day
+* refactoring, see commits
+* to be revealed yet
+
+## Personal skills
+* reading stackoverflow, documentations, googling for getting some help
+* to be revealed yet
+
+## Linux skills
+* use 10 years old laptop with 3GB of RAM to make it happen. (Just make sure, you are not short on resources.)
 
 ## Code scaffolding
 
